@@ -164,7 +164,13 @@ public class SudokuView extends BorderPane {
         eightButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
         nineButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
 
-
+        EventHandler<ActionEvent> cButtonHandler = new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                controller.setGuess(0); // can only clear labels which user have entered
+            }
+        };
+        cButton.addEventHandler(ActionEvent.ACTION, cButtonHandler);
 
 
     }

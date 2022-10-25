@@ -32,6 +32,7 @@ public class Controller {
         sudokuManager.setGuess(guess);
     }
 
+
     public void makeGuess(int row, int col){
         sudokuManager.makeGuess(row, col);
         gridView.updateGridView();
