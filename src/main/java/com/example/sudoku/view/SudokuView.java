@@ -156,6 +156,17 @@ public class SudokuView extends BorderPane {
         };
         oneButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
         twoButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        threeButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        fourButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        fiveButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        sixButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        sevenButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        eightButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+        nineButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
+
+
+
+
     }
 
     // Main.start needs a reference to the menu bar

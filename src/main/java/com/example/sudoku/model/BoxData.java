@@ -10,7 +10,7 @@ public class BoxData {
         this.correctValue = correctValue;
         this.showAtStart = show;
         userInputValue = 0;
-    }
+    } //test
 
     public BoxData(int correctValue, int show, int userInputValue) {
         this.correctValue = correctValue;
