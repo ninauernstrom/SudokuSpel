@@ -85,6 +85,19 @@ public class SudokuManager {
         return boardArray;
     }
 
+    public Boolean checkIfCorrect(){
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(boardArray[i][j].getUserInputValue() != 0) {
+                    if (boardArray[i][j].getUserInputValue() != boardArray[i][j].getCorrectValue()) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         String info = "initial board: " + "\n";

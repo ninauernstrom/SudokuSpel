@@ -8,15 +8,13 @@ import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.control.Alert.AlertType;
 
 public class SudokuView extends BorderPane {
 
@@ -140,6 +138,23 @@ public class SudokuView extends BorderPane {
         clearItem.addEventHandler(ActionEvent.ACTION, clearHandler);
 
         MenuItem checkIfCorrectItem = new MenuItem("Check if correct");
+        EventHandler<ActionEvent> checkHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Alert a1 = new Alert(AlertType.NONE,
+                        "Your inputs are so far correct",ButtonType.OK);
+                Alert a2 = new Alert(AlertType.NONE,
+                        "Your inputs are so far not correct",ButtonType.OK);
+                if(sudokuManager.checkIfCorrect()) {
+                    a1.show();
+                } else {
+                    a2.show();
+                }
+            }
+        };
+        checkIfCorrectItem.addEventHandler(ActionEvent.ACTION, checkHandler);
+
+
         MenuItem rulesItem = new MenuItem("Rules");
 
         helpMenu.getItems().add(clearItem);
