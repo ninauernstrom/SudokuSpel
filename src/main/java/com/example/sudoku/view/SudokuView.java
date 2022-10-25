@@ -156,6 +156,16 @@ public class SudokuView extends BorderPane {
 
 
         MenuItem rulesItem = new MenuItem("Rules");
+        EventHandler<ActionEvent> helpHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Alert a1 = new Alert(AlertType.NONE,
+                        "The object of the puzzle is to fill the remaining squares, using all the numbers 1–9 exactly once in each row, column, and the nine 3 × 3 subgrids",ButtonType.OK);
+                a1.show();
+            }
+        };
+        rulesItem.addEventHandler(ActionEvent.ACTION, helpHandler);
+
 
         helpMenu.getItems().add(clearItem);
         helpMenu.getItems().add(checkIfCorrectItem);
