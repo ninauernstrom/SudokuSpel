@@ -131,8 +131,8 @@ public class SudokuManager {
             }
         }
         Random rn = new Random();
-        int randomTile = rn.nextInt(amount);
-        boardArray[row[randomTile]][col[randomTile]].setUserInputValue(availTiles[randomTile]);
+        int randomTileIndex = rn.nextInt(amount);
+        boardArray[row[randomTileIndex]][col[randomTileIndex]].setUserInputValue(availTiles[randomTileIndex]);
 
         return boardArray;
     }
