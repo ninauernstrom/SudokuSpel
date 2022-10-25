@@ -3,7 +3,7 @@ package com.example.sudoku.model;
 
 import static com.example.sudoku.model.SudokuUtilities.SudokuLevel.*;
 import static com.example.sudoku.model.SudokuUtilities.generateSudokuMatrix;
-
+import java.util.Random;
 public class SudokuManager {
 
     private BoxData[][] boardArray;
@@ -97,6 +97,46 @@ public class SudokuManager {
         }
         return true;
     }
+/*
+    public BoxData[][] randomHint() {
+        Random rn = new Random();
+        int rnRow = rn.nextInt(9);
+        int rnCol = rn.nextInt(9);
+        while(boardArray[rnRow][rnCol].getUserInputValue() != 0 && boardArray[rnRow][rnCol].getShowAtStart() != 1) {
+            rnRow = rn.nextInt(9);
+            rnCol = rn.nextInt(9);
+        }
+        boardArray[rnRow][rnCol].setUserInputValue(boardArray[rnRow][rnCol].getCorrectValue());
+
+        return boardArray;
+    }
+    */
+
+    public BoxData[][] randomHint() {
+        if(gameIsOver()) {
+            return boardArray;
+        }
+        int[] availTiles = new int[81];
+        int amount = 0;
+        int[] row = new int[81];
+        int[] col = new int[81];
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(boardArray[i][j].getUserInputValue() == 0 && boardArray[i][j].getShowAtStart() == 0) {
+                    availTiles[amount] = boardArray[i][j].getCorrectValue();
+                    row[amount] = i;
+                    col[amount] = j;
+                    amount++;
+                }
+            }
+        }
+        Random rn = new Random();
+        int randomTile = rn.nextInt(amount);
+        boardArray[row[randomTile]][col[randomTile]].setUserInputValue(availTiles[randomTile]);
+
+        return boardArray;
+    }
+
 
     @Override
     public String toString() {

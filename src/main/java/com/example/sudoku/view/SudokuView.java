@@ -166,11 +166,9 @@ public class SudokuView extends BorderPane {
         };
         rulesItem.addEventHandler(ActionEvent.ACTION, helpHandler);
 
-
         helpMenu.getItems().add(clearItem);
         helpMenu.getItems().add(checkIfCorrectItem);
         helpMenu.getItems().add(rulesItem);
-
 
         menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu, gameMenu, helpMenu);
@@ -200,6 +198,30 @@ public class SudokuView extends BorderPane {
             }
         };
         cButton.addEventHandler(ActionEvent.ACTION, cButtonHandler);
+
+        EventHandler<ActionEvent> checkButtonHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Alert a1 = new Alert(AlertType.NONE,
+                        "Your inputs are so far correct",ButtonType.OK);
+                Alert a2 = new Alert(AlertType.NONE,
+                        "Your inputs are so far not correct",ButtonType.OK);
+                if(sudokuManager.checkIfCorrect()) {
+                    a1.show();
+                } else {
+                    a2.show();
+                }
+            }
+        };
+        checkButton.addEventHandler(ActionEvent.ACTION, checkButtonHandler);
+
+        EventHandler<ActionEvent> hintButtonHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                controller.hint();
+            }
+        };
+        hintButton.addEventHandler(ActionEvent.ACTION, hintButtonHandler);
     }
 
     // Main.start needs a reference to the menu bar

@@ -46,6 +46,11 @@ public class Controller {
         gridView.updateGridView();
     }
 
+    public void hint() {
+        sudokuManager.randomHint();
+        gridView.updateGridView();
+    }
+
     public void handleExit() {
         System.exit(0);
     }
