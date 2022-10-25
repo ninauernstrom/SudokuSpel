@@ -74,6 +74,17 @@ public class SudokuManager {
         return copy;
     }
 
+    public BoxData[][] clearBoardArray(){
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(boardArray[i][j].getUserInputValue()!=0) {
+                    boardArray[i][j].setUserInputValue(0);
+                }
+            }
+        }
+        return boardArray;
+    }
+
     @Override
     public String toString() {
         String info = "initial board: " + "\n";

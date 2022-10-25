@@ -47,6 +47,7 @@ public class SudokuView extends BorderPane {
         createMenuBar(controller);
         createUiComponents();
         addEventHandlers(controller);
+        controller.setCenter();
 
     }
 
@@ -94,8 +95,7 @@ public class SudokuView extends BorderPane {
         EventHandler<ActionEvent> difficultyHandlerEasy = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gridView = new GridView(sudokuManager);
-                controller.setDifficulty(SudokuUtilities.SudokuLevel.EASY, gridView);
+                controller.setDifficulty(SudokuUtilities.SudokuLevel.EASY);
             }
         };
         easyItem.addEventHandler(ActionEvent.ACTION, difficultyHandlerEasy);
@@ -103,8 +103,7 @@ public class SudokuView extends BorderPane {
         EventHandler<ActionEvent> difficultyHandlerMedium = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gridView = new GridView(sudokuManager);
-                controller.setDifficulty(SudokuUtilities.SudokuLevel.MEDIUM, gridView);
+                controller.setDifficulty(SudokuUtilities.SudokuLevel.MEDIUM);
             }
         };
         mediumItem.addEventHandler(ActionEvent.ACTION, difficultyHandlerMedium);
@@ -112,8 +111,7 @@ public class SudokuView extends BorderPane {
         EventHandler<ActionEvent> difficultyHandlerHard = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gridView = new GridView(sudokuManager);
-                controller.setDifficulty(SudokuUtilities.SudokuLevel.HARD, gridView);
+                controller.setDifficulty(SudokuUtilities.SudokuLevel.HARD);
             }
         };
         hardItem.addEventHandler(ActionEvent.ACTION, difficultyHandlerHard);
@@ -122,8 +120,7 @@ public class SudokuView extends BorderPane {
         EventHandler<ActionEvent> startHandler = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gridView = new GridView(sudokuManager);
-                controller.startNewGame(gridView);
+                controller.startNewGame();
             }
         };
         startItem.addEventHandler(ActionEvent.ACTION, startHandler);
@@ -134,6 +131,14 @@ public class SudokuView extends BorderPane {
 
         Menu helpMenu = new Menu("Help");
         MenuItem clearItem = new MenuItem("Clear");
+        EventHandler<ActionEvent> clearHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                controller.clearUserInput();
+            }
+        };
+        clearItem.addEventHandler(ActionEvent.ACTION, clearHandler);
+
         MenuItem checkIfCorrectItem = new MenuItem("Check if correct");
         MenuItem rulesItem = new MenuItem("Rules");
 
@@ -163,7 +168,6 @@ public class SudokuView extends BorderPane {
         sevenButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
         eightButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
         nineButton.addEventHandler(ActionEvent.ACTION, numberButtonHandler);
-
         EventHandler<ActionEvent> cButtonHandler = new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -171,8 +175,6 @@ public class SudokuView extends BorderPane {
             }
         };
         cButton.addEventHandler(ActionEvent.ACTION, cButtonHandler);
-
-
     }
 
     // Main.start needs a reference to the menu bar

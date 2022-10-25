@@ -12,26 +12,34 @@ public class Controller {
     public Controller(com.example.sudoku.view.SudokuView view, SudokuManager sudokuManager) {
         this.view = view;
         this.sudokuManager = sudokuManager;
+        gridView = new GridView(sudokuManager);
     }
-
     public Controller(com.example.sudoku.view.GridView gridView, SudokuManager sudokuManager){
         this.gridView = gridView;
         this.sudokuManager = sudokuManager;
     }
-    public void startNewGame(com.example.sudoku.view.GridView gridView) {
+    public void startNewGame() {
         sudokuManager.createBoard();
         gridView.updateGridView();
     }
 
-    public void setDifficulty(SudokuUtilities.SudokuLevel difficulty, com.example.sudoku.view.GridView gridView) {
+    public void setDifficulty(SudokuUtilities.SudokuLevel difficulty) {
         sudokuManager.setDifficulty(difficulty);
         gridView.updateGridView();
+    }
+
+    public void clearUserInput() {
+        sudokuManager.clearBoardArray();
+        gridView.updateGridView();
+    }
+
+    public void setCenter(){
+        view.setCenter(gridView);
     }
 
     public void setGuess(int guess){
         sudokuManager.setGuess(guess);
     }
-
 
     public void makeGuess(int row, int col){
         sudokuManager.makeGuess(row, col);
