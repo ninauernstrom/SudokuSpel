@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class MainUI extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage){
         SudokuManager sudokuManager = new SudokuManager();
         sudokuManager.createBoard();
 

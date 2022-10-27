@@ -3,8 +3,10 @@ package com.example.sudoku.model;
 
 import static com.example.sudoku.model.SudokuUtilities.SudokuLevel.*;
 import static com.example.sudoku.model.SudokuUtilities.generateSudokuMatrix;
+
+import java.io.Serializable;
 import java.util.Random;
-public class SudokuManager {
+public class SudokuManager implements Serializable{
 
     private BoxData[][] boardArray;
     private SudokuUtilities.SudokuLevel difficulty;
@@ -95,20 +97,6 @@ public class SudokuManager {
         }
         return true;
     }
-/*
-    public BoxData[][] randomHint() {
-        Random rn = new Random();
-        int rnRow = rn.nextInt(9);
-        int rnCol = rn.nextInt(9);
-        while(boardArray[rnRow][rnCol].getUserInputValue() != 0 && boardArray[rnRow][rnCol].getShowAtStart() != 1) {
-            rnRow = rn.nextInt(9);
-            rnCol = rn.nextInt(9);
-        }
-        boardArray[rnRow][rnCol].setUserInputValue(boardArray[rnRow][rnCol].getCorrectValue());
-
-        return boardArray;
-    }
-    */
 
     public BoxData[][] randomHint() {
         if(gameIsOver()) {

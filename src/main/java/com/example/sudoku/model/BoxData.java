@@ -1,6 +1,8 @@
 package com.example.sudoku.model;
 
-public class BoxData {
+import java.io.Serializable;
+
+public class BoxData implements Serializable {
 
     private final int correctValue;
     private final int showAtStart;

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98536c7a-bdff-4279-b0a0-95a4d6181084" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuFileIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/BoxData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/BoxData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokoFileIO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/view/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/view/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/view/GridView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/view/GridView.java" afterDir="false" />
@@ -33,16 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/KTH/ObjProgrammering/Laborationer/Laboration3/Laboration3DelB",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +61,15 @@
       <workItem from="1666707422391" duration="30000" />
       <workItem from="1666707467288" duration="9000" />
       <workItem from="1666707700643" duration="9313000" />
-      <workItem from="1666829152798" duration="4290000" />
+      <workItem from="1666829152798" duration="4353000" />
+      <workItem from="1666851561222" duration="16000" />
+      <workItem from="1666851669333" duration="266000" />
+      <workItem from="1666852377178" duration="671000" />
+      <workItem from="1666853112494" duration="152000" />
+      <workItem from="1666853467564" duration="1266000" />
+      <workItem from="1666854770480" duration="459000" />
+      <workItem from="1666855340016" duration="429000" />
+      <workItem from="1666855845086" duration="1433000" />
     </task>
     <servers />
   </component>

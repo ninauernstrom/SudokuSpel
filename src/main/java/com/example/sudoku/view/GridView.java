@@ -17,10 +17,10 @@ import static com.example.sudoku.model.SudokuUtilities.*;
 
 public class GridView extends TilePane {
 
-    private Label[][] numberTiles; // the tiles/squares to show in the ui grid
-    private TilePane numberPane;
+    private final Label[][] numberTiles; // the tiles/squares to show in the ui grid
+    private final TilePane numberPane;
     private SudokuManager sudokuManager;
-    private Controller controller;
+    private final Controller controller;
 
     public GridView(SudokuManager sudokuManager, Controller controller) {
         super();
@@ -149,5 +149,7 @@ public class GridView extends TilePane {
             }
         }
     };
+
+    public void setSudokuManager(SudokuManager sudokuManager){ this.sudokuManager = sudokuManager; }
 
 }

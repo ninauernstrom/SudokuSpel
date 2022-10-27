@@ -34,7 +34,7 @@ public class SudokuView extends BorderPane {
 
     private SudokuManager sudokuManager;
 
-    private GridView gridView;
+    private final GridView gridView;
 
     SudokuView(SudokuManager sudokuManager) {
         super();
@@ -75,7 +75,25 @@ public class SudokuView extends BorderPane {
     private void createMenuBar(Controller controller) {
         Menu fileMenu = new Menu("File");
         MenuItem loadItem = new MenuItem("Load game");
+
+        EventHandler<ActionEvent> loadHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent){
+                controller.loadFile(); // save data and exit
+            }
+        };
+        loadItem.addEventHandler(ActionEvent.ACTION, loadHandler);
+
         MenuItem saveItem = new MenuItem("Save game");
+
+        EventHandler<ActionEvent> saveHandler = new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent actionEvent){
+                controller.saveFile(); // save data and exit
+            }
+        };
+        saveItem.addEventHandler(ActionEvent.ACTION, saveHandler);
+
         MenuItem exitItem = new MenuItem("Exit");
         EventHandler<ActionEvent> exitHandler = new EventHandler<>() {
             @Override
@@ -233,5 +251,9 @@ public class SudokuView extends BorderPane {
 
     public GridView getGridView(){ return gridView; }
 
+    public void setSudokuManager(SudokuManager sudokuManager){
+        this.sudokuManager = sudokuManager;
+        gridView.setSudokuManager(sudokuManager);
+    }
 
 }
