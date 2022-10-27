@@ -7,9 +7,9 @@ public class Main {
 
         SudokuManager testManager = new SudokuManager();
         testManager.createBoard();
-        System.out.println(testManager.toString());
+        System.out.println(testManager);
         testManager.setDifficulty(SudokuUtilities.SudokuLevel.HARD);
-        System.out.println(testManager.toString());
+        System.out.println(testManager);
         Scanner sc = new Scanner(System.in);
         BoxData[][]  board;
         while(!testManager.gameIsOver()){

@@ -18,11 +18,8 @@ public class MainUI extends Application {
         sudokuManager.createBoard();
 
         SudokuView view = new SudokuView(sudokuManager); // creates the controller and gridview object
-        //GridView gridView = new GridView(sudokuManager); // inside controller now
 
         MenuBar menubar = view.getMenuBar();
-
-        //view.setCenter(gridView); // controller has this method now
 
         // we need a VBox to put the menu bar at the top of the window
         VBox root = new VBox(menubar, view);

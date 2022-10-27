@@ -31,13 +31,11 @@ public class SudokuManager {
 
     public int getGuess(){ return guess; }
 
-    public boolean makeGuess(int row, int column){
+    public void makeGuess(int row, int column){
         if(!gameIsOver()){
             boardArray[row][column].setUserInputValue(guess);
-            return true;
-        } else {
-            return false;
         }
+
     }
 
     public boolean gameIsOver(){

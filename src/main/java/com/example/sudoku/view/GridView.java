@@ -22,11 +22,10 @@ public class GridView extends TilePane {
     private SudokuManager sudokuManager;
     private Controller controller;
 
-    public GridView(SudokuManager sudokuManager) {
+    public GridView(SudokuManager sudokuManager, Controller controller) {
         super();
-        //GridController controller = new GridController(this);
         this.sudokuManager = sudokuManager;
-        controller = new Controller(this, sudokuManager);
+        this.controller = controller;
         numberTiles = new Label[GRID_SIZE][GRID_SIZE];
         initNumberTiles();
 
@@ -35,14 +34,14 @@ public class GridView extends TilePane {
         this.getChildren().add(numberPane);
         this.setMaxWidth(50);
 
-        // ...
     }
 
     // called by constructor (only)
     private final void initNumberTiles() {
         BoxData[][] boxData = sudokuManager.getBoardArray();
 
-        Font font = Font.font("Monospaced", FontWeight.NORMAL, 20);
+        Font fontStart = Font.font("Monospaced", FontWeight.BOLD, 20);
+        Font fontGuess = Font.font("Monospaced", FontWeight.NORMAL, 20);
 
         String number = "";
 
@@ -56,7 +55,11 @@ public class GridView extends TilePane {
                 Label tile = new Label(number); // data from model
                 tile.setPrefWidth(32);
                 tile.setPrefHeight(32);
-                tile.setFont(font);
+                if(number.equals("")){
+                    tile.setFont(fontGuess);
+                } else {
+                    tile.setFont(fontStart);
+                }
                 tile.setAlignment(Pos.CENTER);
                 tile.setStyle("-fx-border-color: black; -fx-border-width: 0.5px;"); // css style
                 tile.setOnMouseClicked(tileClickHandler); // add your custom event handler
@@ -98,6 +101,22 @@ public class GridView extends TilePane {
             }
         }
         return root;
+    }
+
+    public void updateTileFont(){
+        BoxData[][] boxData = sudokuManager.getBoardArray();
+        Font fontStart = Font.font("Monospaced", FontWeight.BOLD, 20);
+        Font fontGuess = Font.font("Monospaced", FontWeight.NORMAL, 20);
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col < GRID_SIZE; col++) {
+                if(boxData[row][col].getShowAtStart() == 0){
+                    numberTiles[row][col].setFont(fontGuess);
+                } else {
+                    numberTiles[row][col].setFont(fontStart);
+                }
+
+            }
+        }
     }
 
     public void updateGridView(){

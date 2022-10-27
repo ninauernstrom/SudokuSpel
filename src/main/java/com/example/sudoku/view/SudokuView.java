@@ -18,7 +18,6 @@ import javafx.scene.control.Alert.AlertType;
 
 public class SudokuView extends BorderPane {
 
-    private VBox root;
     private Button checkButton;
     private Button hintButton;
     private Button oneButton;
@@ -42,10 +41,12 @@ public class SudokuView extends BorderPane {
         //createUiComponents();
         this.sudokuManager = sudokuManager;
         Controller controller = new Controller(this, sudokuManager);
+        gridView = new GridView(sudokuManager, controller);
         createMenuBar(controller);
         createUiComponents();
         addEventHandlers(controller);
-        controller.setCenter();
+        controller.setGridView();
+        this.setCenter(gridView);
 
     }
 
@@ -138,7 +139,8 @@ public class SudokuView extends BorderPane {
         clearItem.addEventHandler(ActionEvent.ACTION, clearHandler);
 
         MenuItem checkIfCorrectItem = new MenuItem("Check if correct");
-        EventHandler<ActionEvent> checkHandler = new EventHandler<>() {
+
+        EventHandler<ActionEvent> checkMenuHandler = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Alert a1 = new Alert(AlertType.NONE,
@@ -152,15 +154,15 @@ public class SudokuView extends BorderPane {
                 }
             }
         };
-        checkIfCorrectItem.addEventHandler(ActionEvent.ACTION, checkHandler);
-
+        checkIfCorrectItem.addEventHandler(ActionEvent.ACTION, checkMenuHandler);
 
         MenuItem rulesItem = new MenuItem("Rules");
         EventHandler<ActionEvent> helpHandler = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Alert a1 = new Alert(AlertType.NONE,
-                        "The object of the puzzle is to fill the remaining squares, using all the numbers 1–9 exactly once in each row, column, and the nine 3 × 3 subgrids",ButtonType.OK);
+                        "The object of the puzzle is to fill the remaining squares, using all the numbers 1–9 " +
+                                "exactly once in each row, column, and the nine 3 × 3 subgrids",ButtonType.OK);
                 a1.show();
             }
         };
@@ -228,6 +230,8 @@ public class SudokuView extends BorderPane {
     public MenuBar getMenuBar() {
         return this.menuBar;
     }
+
+    public GridView getGridView(){ return gridView; }
 
 
 }
