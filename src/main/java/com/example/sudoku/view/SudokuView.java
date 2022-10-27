@@ -5,6 +5,7 @@ import com.example.sudoku.model.SudokuUtilities;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -46,7 +47,6 @@ public class SudokuView extends BorderPane {
         createUiComponents();
         addEventHandlers(controller);
         controller.setGridView();
-        this.setCenter(gridView);
 
     }
 
@@ -69,6 +69,7 @@ public class SudokuView extends BorderPane {
         VBox vboxRight = new VBox(oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, cButton);
         vboxRight.setAlignment(Pos.CENTER);
         this.setRight(vboxRight);
+        this.setCenter(gridView);
 
     }
 

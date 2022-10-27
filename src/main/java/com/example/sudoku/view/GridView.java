@@ -4,12 +4,9 @@ import com.example.sudoku.model.BoxData;
 import com.example.sudoku.model.SudokuManager;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -18,7 +15,6 @@ import static com.example.sudoku.model.SudokuUtilities.*;
 public class GridView extends TilePane {
 
     private final Label[][] numberTiles; // the tiles/squares to show in the ui grid
-    private final TilePane numberPane;
     private SudokuManager sudokuManager;
     private final Controller controller;
 
@@ -29,7 +25,7 @@ public class GridView extends TilePane {
         numberTiles = new Label[GRID_SIZE][GRID_SIZE];
         initNumberTiles();
 
-        numberPane = makeNumberPane();
+        TilePane numberPane = makeNumberPane();
 
         this.getChildren().add(numberPane);
         this.setMaxWidth(50);
@@ -37,7 +33,7 @@ public class GridView extends TilePane {
     }
 
     // called by constructor (only)
-    private final void initNumberTiles() {
+    private void initNumberTiles() {
         BoxData[][] boxData = sudokuManager.getBoardArray();
 
         Font fontStart = Font.font("Monospaced", FontWeight.BOLD, 20);
@@ -69,7 +65,7 @@ public class GridView extends TilePane {
         }
     }
 
-    private final TilePane makeNumberPane() {
+    private TilePane makeNumberPane() {
         // create the root tile pane
         TilePane root = new TilePane();
         root.setPrefColumns(SECTIONS_PER_ROW);
@@ -135,7 +131,7 @@ public class GridView extends TilePane {
         }
     }
 
-    private EventHandler<MouseEvent> tileClickHandler = new EventHandler<MouseEvent>() {
+    private final EventHandler<MouseEvent> tileClickHandler = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             for (int row = 0; row < GRID_SIZE; row++) {
