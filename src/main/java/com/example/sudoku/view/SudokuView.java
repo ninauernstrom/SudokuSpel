@@ -73,7 +73,7 @@ public class SudokuView extends BorderPane {
 
     }
 
-    private void createMenuBar(Controller controller) {
+    private void createMenuBar(Controller controller){
         Menu fileMenu = new Menu("File");
         MenuItem loadItem = new MenuItem("Load game");
 

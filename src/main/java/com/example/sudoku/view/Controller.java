@@ -86,7 +86,8 @@ public class Controller {
                 SudokuFileIO.serializeToFile(selectedFile, sudokuManager);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "error when loading file", ButtonType.OK);
         }
     }
 
@@ -107,6 +108,8 @@ public class Controller {
             Alert a = new Alert(Alert.AlertType.ERROR,
                     "Could not load game from file, please check the game file", ButtonType.OK);
         } catch (IOException e) {
+            Alert a = new Alert(Alert.AlertType.ERROR,
+                    "error when loading file", ButtonType.OK);
         }
     }
 
