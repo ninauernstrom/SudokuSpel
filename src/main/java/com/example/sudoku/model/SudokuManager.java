@@ -1,8 +1,6 @@
 package com.example.sudoku.model;
 
 
-import static com.example.sudoku.model.SudokuUtilities.SudokuLevel.*;
-import static com.example.sudoku.model.SudokuUtilities.generateSudokuMatrix;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -19,6 +17,7 @@ public class SudokuManager implements Serializable{
     private BoxData[][] boardArray;
     private SudokuUtilities.SudokuLevel difficulty;
     private int guess;
+    public static final int GRID_SIZE = 9;
 
     /**
      * Constructs a new SudokuManager with a 9x9 2d array of BoxData
@@ -26,7 +25,7 @@ public class SudokuManager implements Serializable{
      * guess value is set to 0
      */
     public SudokuManager() {
-        boardArray = new BoxData[9][9];
+        boardArray = new BoxData[GRID_SIZE][GRID_SIZE];
         difficulty = SudokuUtilities.SudokuLevel.EASY;
         guess = 0;
     }
@@ -37,7 +36,7 @@ public class SudokuManager implements Serializable{
      * @return createBoard()
      */
     public BoxData[][] reset(){
-        boardArray = new BoxData[9][9];
+        boardArray = new BoxData[GRID_SIZE][GRID_SIZE];
         return createBoard();
     }
     /**
@@ -78,8 +77,8 @@ public class SudokuManager implements Serializable{
      * @return boolean
      */
     public boolean gameIsOver(){
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
                 if(boardArray[i][j].getValueToShow() == 0){
                     return false;
                 }
@@ -96,8 +95,8 @@ public class SudokuManager implements Serializable{
      */
     public BoxData[][] createBoard() {
         int[][][] fullBoard  = SudokuUtilities.generateSudokuMatrix(difficulty);
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
                 int show = 0; // represents if correct value should be shown at start
                 if(fullBoard[i][j][0] != 0) show = 1;
                 boardArray[i][j] = new BoxData(fullBoard[i][j][1], show); //[row][col][0] represents the initial values, zero representing an empty cell.
@@ -112,8 +111,8 @@ public class SudokuManager implements Serializable{
      */
     public BoxData[][] getBoardArray(){
         BoxData[][] copy = new BoxData[9][9];
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
                 copy[i][j] = new BoxData(boardArray[i][j].getCorrectValue(),
                         boardArray[i][j].getShowAtStart(),
                         boardArray[i][j].getUserInputValue());
@@ -127,8 +126,8 @@ public class SudokuManager implements Serializable{
      * @return boardArray
      */
     public BoxData[][] clearBoardArray(){
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
                 if(boardArray[i][j].getUserInputValue()!=0) {
                     boardArray[i][j].setUserInputValue(0);
                 }
@@ -142,8 +141,8 @@ public class SudokuManager implements Serializable{
      * @return boolean
      */
     public Boolean checkIfCorrect(){
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
                 if(boardArray[i][j].getUserInputValue() != 0) {
                     if (boardArray[i][j].getUserInputValue() != boardArray[i][j].getCorrectValue()) {
                         return false;
@@ -166,8 +165,8 @@ public class SudokuManager implements Serializable{
         int amount = 0;
         int[] row = new int[81];
         int[] col = new int[81];
-        for(int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
                 if(boardArray[i][j].getUserInputValue() == 0 && boardArray[i][j].getShowAtStart() == 0) {
                     availTiles[amount] = boardArray[i][j].getCorrectValue();
                     row[amount] = i;
@@ -191,15 +190,15 @@ public class SudokuManager implements Serializable{
     @Override
     public String toString() {
         String info = "initial board: " + "\n";
-        for(int i = 0; i < 9; i++) {
-            for(int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for(int j = 0; j < GRID_SIZE; j++) {
                 info += boardArray[i][j].getStartValue();
             }
             info += "\n";
         }
         info += "solution board: " + "\n";
-        for(int i = 0; i < 9; i++) {
-            for(int j = 0; j < 9; j++) {
+        for(int i = 0; i < GRID_SIZE; i++) {
+            for(int j = 0; j < GRID_SIZE; j++) {
                 info += boardArray[i][j].getCorrectValue();  // [row][col][0] represents the initial values, zero representing an empty cell.
                 // [row][col][1] represents the solution.
             }
