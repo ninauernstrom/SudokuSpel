@@ -51,4 +51,6 @@ public class SudokuFileIO {
         }
         return sudokuManager;
     }
+
+    private SudokuFileIO() {}
 }

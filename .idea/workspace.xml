@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98536c7a-bdff-4279-b0a0-95a4d6181084" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuFileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuFileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sudoku/model/SudokuUtilities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/KTH/ObjProgrammering/Laborationer/Laboration4/SudokuSpel",
+    "last_opened_file_path": "C:/KTH/ObjProgrammering/Laborationer/Laboration3/Laboration3DelB",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -56,7 +57,9 @@
       <workItem from="1666894975478" duration="295000" />
       <workItem from="1666895403381" duration="63000" />
       <workItem from="1666904122531" duration="559000" />
-      <workItem from="1666904769335" duration="293000" />
+      <workItem from="1666904769335" duration="2500000" />
+      <workItem from="1666910835269" duration="2985000" />
+      <workItem from="1666917893928" duration="15000" />
     </task>
     <servers />
   </component>
