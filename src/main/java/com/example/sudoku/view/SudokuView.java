@@ -39,7 +39,6 @@ public class SudokuView extends BorderPane {
 
     SudokuView(SudokuManager sudokuManager) {
         super();
-        //createUiComponents();
         this.sudokuManager = sudokuManager;
         Controller controller = new Controller(this, sudokuManager);
         gridView = new GridView(sudokuManager, controller);
